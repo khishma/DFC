@@ -10,13 +10,13 @@ def __init__(self, imagery_fns, label_fns=None, groups=None, chip_size=256, num_
         
         Args:
             imagery_fns: A list of filenames (or URLS -- anything that `rasterio.open()` can read) pointing to imagery tiles.
-            label_fns: A list of filenames of the same size as `imagery_fns` pointing to label mask tiles or `None` if the Dataset should operate in "imagery only mode". Note that we expect `imagery_fns[i]` and `label_fns[i]` to have the same dimension and coordinate system.
-            groups: Optional: A list of integers of the same size as `imagery_fns` that gives the "group" membership of each tile. This can be used to normalize imagery from different groups differently.
+            label_fns: A list of filenames of the same size as `imagery_fns` pointing to label mask tiles or `None` if the Dataset should operate in "imagery only mode". Note that             we expect `imagery_fns[i]` and `label_fns[i]` to have the same dimension and coordinate system.
+            groups: Optional: A list of integers of the same size as `imagery_fns` that gives the "group" membership of each tile. This can be used to normalize imagery from                   different groups differently.
             chip_size: Desired size of chips (in pixels).
             num_chips_per_tile: Desired number of chips to sample for each tile.
-            windowed_sampling: Flag indicating whether we should sample each chip with a read using `rasterio.windows.Window` or whether we should read the whole tile into memory, then sample chips.
-            image_transform: A function to apply to each image chip object. If this is `None`, then the only transformation applied to the loaded imagery will be to convert it to a `torch.Tensor`. If this is not `None`, then the function should return a `Torch.tensor`. Further, if `groups` is not `None` then the transform function should expect the imagery as the first argument and the group as the second argument.
+            windowed_sampling: Flag indicating whether we should sample each chip with a read using `rasterio.windows.Window` or whether we should read the whole tile into memory,             then sample chips.
+            image_transform: A function to apply to each image chip object. If this is `None`, then the only transformation applied to the loaded imagery will be to convert it to             a `torch.Tensor`. If this is not `None`, then the function should return a `Torch.tensor`. Further, if `groups` is not `None` then the transform function should                    expect the imagery as the first argument and the group as the second argument.
             label_transform: Similar to image_transform, but applied to label chips.
-            nodata_check: A method that will check an `(image_chip)` or `(image_chip, label_chip)` (if `label_fns` are provided) and return whether or not the chip should be skipped. This can be used, for example, to skip chips that contain nodata values.
+            nodata_check: A method that will check an `(image_chip)` or `(image_chip, label_chip)` (if `label_fns` are provided) and return whether or not the chip should be                   skipped. This can be used, for example, to skip chips that contain nodata values.
             verbose: If `False` we will be quiet.
         """
