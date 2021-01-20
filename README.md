@@ -1,7 +1,7 @@
 # DFC
 This github repository is created in context of the DFC contest 2021 under track "Multitemporal Semantic Change Detection" (MSD).  
 The dataset is over the state of Maryland (USA) having 2250 tiles of 4000 x 4000 pixels collected in 2013 and 2017.
-The baseline code has been developed from the paper: https://arxiv.org/pdf/2101.01154.pdf
+The baseline code has been developed from the paper: https://arxiv.org/pdf/2101.01154.pdf. It is also noted that some of the codes were adapted from https://rcdaudt.github.io/ and https://github.com/calebrob6/dfc2021-msd-baseline.
 
 The dataloaders scripts used to run the tiles NAIP datasets are as follows:
 
